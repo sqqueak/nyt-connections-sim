@@ -18,10 +18,9 @@ for file in glob.glob("./inputs/*.txt"):
             for w in sol:
                 hor = game.index(w) // 4
                 ver = game.index(w) % 4
-                ver = {0: "a", 1: "b", 2: "c", 3: "d"}[ver]
-                pos.append(f'{hor+1}{ver}')
-            key = ''.join(sorted(pos))
-            counts[key] = counts.get(key, 0) + 1
+                # ver = {0: "a", 1: "b", 2: "c", 3: "d"}[ver]
+                pos.append(f'{hor}{ver}')
+            counts[tuple(sorted(pos))] = counts.get(tuple(sorted(pos)), 0) + 1
 
 for c in counts:
     if counts[c] > 1:
